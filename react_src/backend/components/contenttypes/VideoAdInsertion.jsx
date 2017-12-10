@@ -27,12 +27,9 @@
 import React from 'react';
 import { componentLoader } from '../../../ComponentLoader';
 import { openMediaGallery } from '../../utils';
-import AssetFinder from '../helpers/Inputs';
 import autobind from 'class-autobind';
 import { noSubmitOnEnter } from '../../utils';
 
-import Constants from '../../../constants';
-const i18n = Constants.locstr.video;
 
 function editView(params) {
   const { id, data, changeAreaContent, context, stateId } = params;
@@ -57,13 +54,11 @@ class VideoEdit extends React.PureComponent {
     url: '',
     autostart: false,
     loop: false,
-    live: false,
     fullscreen: false,
     zoom: false,
     playIcon: true,
     showNavBar: true,
-    thumbnail: '',
-    asset: ''
+    thumbnail: ''
   };
 
   constructor() {
@@ -94,125 +89,99 @@ class VideoEdit extends React.PureComponent {
     }
   }
   render() {
-    const { url, autostart, loop, live, fullscreen, zoom, playIcon, showNavBar, thumbnail, asset } = this.props;
+    const { url, autostart, loop, fullscreen, zoom, playIcon, showNavBar, thumbnail } = this.props;
     return (
       <div className="component editHeader">
-        <h2>{i18n.title}</h2>
+        <h2>Ad Inserted Video Settings</h2>
         <table>
           <tbody>
             <tr>
               <td>
-                <label>{i18n.asset}: </label>
+                <label>Ad Inserted Video Source: </label>
               </td>
               <td>
-                <AssetFinder value={asset} onSelect={this.setAsset} onChange={this.setAsset} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>{i18n.src}: </label>
-              </td>
-              <td>
-                <input
-                  type="text"
-                  id="videoUrlInput"
-                  placeholder={i18n.placeHolderSrc}
-                  value={url}
-                  onKeyPress={noSubmitOnEnter}
-                  onChange={e => this.setContent('url', e.target.value)}
-                />
-                <span className="padded_or">{i18n.or}</span>
-                <button type="button" target="videoUrlInput"
-                  className="button mpat-insert-media white_blue" data-type="video">
-                  {i18n.chooseVideo}
-                </button>
+                <select onChange={e => this.setContent('url', e.target.value)}>
+                  <option key='1' value='AdInsertedVideo1'>Ad Inserted Video 1</option>
+                  <option key='2' value='AdInsertedVideo2'>Ad Inserted Video 2</option>
+                  <option key='3' value='AdInsertedVideo3'>Ad Inserted Video 3</option>
+                  <option key='4' value='AdInsertedVideo4'>Ad Inserted Video 4</option>
+                  <option key='5' value='AdInsertedVideo5'>Ad Inserted Video 5</option>
+                </select>
               </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.thumbnail}: </label>
+                <label>Thumbnail: </label>
               </td>
               <td>
                 <input
                   type="text"
                   id="videoThumbnailInput"
-                  placeholder={i18n.placeHolderThumbnail}
+                  placeholder="THUMBNAIL URL"
                   value={thumbnail}
                   onKeyPress={noSubmitOnEnter}
                   onChange={e => this.setContent('thumbnail', e.target.value)}
                 />
-                <span className="padded_or">{i18n.or}</span>
+                <span className="padded_or">OR</span>
                 <button type="button" target="videoThumbnailInput"
                   className="button mpat-insert-media white_blue" data-type="image">
-                  {i18n.chooseThumbnail}
+                  choose Thumbnail
                 </button>
               </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.autoPlay}: </label>
+                <label>Autoplay: </label>
               </td>
               <td>
                 <input type="checkbox" checked={autostart}
                   onChange={e => this.setContent('autostart', e.target.checked)} />
-                &nbsp;({i18n.startPlaybackWhenPage})
+                &nbsp;(Start playback when page opens)
             </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.repeat}: </label>
+                <label>Repeat: </label>
               </td>
               <td>
                 <input type="checkbox" checked={loop}
                   onChange={e => this.setContent('loop', e.target.checked)} />
-                ({i18n.loop})
+                &nbsp;(Loop)
             </td>
             </tr>
             <tr>
               <td>
-                {/* TODO i18n */}
-                <label>Live: </label>
-              </td>
-              <td>
-                <input type="checkbox" checked={live}
-                  onChange={e => this.setContent('live', e.target.checked)} />
-                {/* TODO i18n */}
-                ({ })
-            </td>
-            </tr>
-            <tr>
-              <td>
-                <label>{i18n.fullscreenStart}: </label>
+                <label>Fullscreen start: </label>
               </td>
               <td>
                 <input type="checkbox" checked={fullscreen}
                   onChange={e => this.setContent('fullscreen', e.target.checked)} />
-                ({i18n.startVideoFullScr})
+                &nbsp;(Start video in fullscreen)
             </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.removeBlackBars}: </label>
+                <label>Remove Black Bars: </label>
               </td>
               <td>
                 <input type="checkbox" checked={zoom}
                   onChange={e => this.setContent('zoom', e.target.checked)} />
-                ({i18n.zoomVideo})
+                &nbsp;(Zoom video to remove black bars)
             </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.playIcon}</label>
+                <label>Play icon</label>
               </td>
               <td>
                 <input type="checkbox" checked={playIcon}
                   onChange={e => this.setContent('playIcon', e.target.checked)} />
-                ({i18n.showPlayIcon})
+                &nbsp;(show play icon when video is ready)
             </td>
             </tr>
             <tr>
               <td>
-                <label>{i18n.showNavBar}</label>
+                <label>Show navigation bar: </label>
               </td>
               <td>
                 <input type="checkbox" checked={showNavBar}
@@ -228,7 +197,7 @@ class VideoEdit extends React.PureComponent {
 
 
 componentLoader.registerComponent(
-  'video with ad insertion', {
+  'videoadinsertion', {
     edit: editView,
     preview
   }, {
