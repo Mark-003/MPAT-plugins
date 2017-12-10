@@ -228,7 +228,7 @@ class VideoEdit extends React.PureComponent {
 
 
 componentLoader.registerComponent(
-  'video with add insertion', {
+  'video with ad insertion', {
     edit: editView,
     preview
   }, {
