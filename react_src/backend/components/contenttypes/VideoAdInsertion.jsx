@@ -34,7 +34,7 @@ import { noSubmitOnEnter } from '../../utils';
 function editView(params) {
   const { id, data, changeAreaContent, context, stateId } = params;
   return (
-    <VideoEdit id={id} {...data} changeAreaContent={changeAreaContent} />
+    <AdInsertedVideoEdit id={id} {...data} changeAreaContent={changeAreaContent} />
   );
 }
 
@@ -48,10 +48,9 @@ function preview(content = {}) {
 }
 
 
-class VideoEdit extends React.PureComponent {
+class AdInsertedVideoEdit extends React.PureComponent {
 
   static defaultProps = {
-    url: '',
     autostart: false,
     loop: false,
     fullscreen: false,
@@ -89,7 +88,7 @@ class VideoEdit extends React.PureComponent {
     }
   }
   render() {
-    const { url, autostart, loop, fullscreen, zoom, playIcon, showNavBar, thumbnail } = this.props;
+    const { autostart, loop, fullscreen, zoom, playIcon, showNavBar, thumbnail } = this.props;
     return (
       <div className="component editHeader">
         <h2>Ad Inserted Video Settings</h2>
@@ -197,7 +196,7 @@ class VideoEdit extends React.PureComponent {
 
 
 componentLoader.registerComponent(
-  'videoadinsertion', {
+  'adinsertedvideo', {
     edit: editView,
     preview
   }, {

@@ -136,6 +136,7 @@ const backendConfig = createConfig({
       './backend/components/contenttypes/Text.jsx',
       './backend/components/contenttypes/ToggleTracking.jsx',
       './backend/components/contenttypes/Video.jsx',
+      './backend/components/contenttypes/VideoAdInsertion.jsx',
       './app_manager/app_manager.jsx'
     ],
     mpat_timeline: './backend/timeline/timeline_main.jsx',
