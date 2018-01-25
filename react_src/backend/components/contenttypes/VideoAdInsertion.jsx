@@ -100,7 +100,7 @@ class AdInsertedVideoEdit extends React.PureComponent {
               </td>
               <td>
                 <select onChange={e => this.setContent('url', e.target.value)}>
-                  <option key='1' value='AdInsertedVideo1'>Ad Inserted Video 1</option>
+                  <option key='1' value='http://daiservices.fokus.fraunhofer.de:3002/mpds/1515962031964.mpd'>Ad Inserted Video 1</option>
                   <option key='2' value='AdInsertedVideo2'>Ad Inserted Video 2</option>
                   <option key='3' value='AdInsertedVideo3'>Ad Inserted Video 3</option>
                   <option key='4' value='AdInsertedVideo4'>Ad Inserted Video 4</option>

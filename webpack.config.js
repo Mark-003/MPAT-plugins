@@ -166,6 +166,7 @@ const frontendConfig = createConfig({
       './frontend/components/contenttypes/ToggleTrackingContent.jsx',
       './frontend/components/contenttypes/ScribbleLive.jsx',
       './frontend/components/contenttypes/ScrolledTextContent.jsx',
+      './frontend/components/contenttypes/VideoAdInsertionContent.jsx',
       './frontend/core.jsx'
     ]
   },
