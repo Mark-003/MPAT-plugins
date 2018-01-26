@@ -501,19 +501,23 @@ class VideoAdInsertionContent extends React.Component {
                 <div className="video-controls-container">
                     <div className="video-controls">
                         <div
-                            style={{ backgroundImage: `url(${application.icons.videoplayer.rewind})` }}
+                            style={{ backgroundImage: `url(${window.location.origin}/app/themes/mpat-theme/shared/assets/videoplayer/icon_rewind_white.png)` }}
+                            // style={{ backgroundImage: `url(${application.icons.videoplayer.rewind})` }}
                             className={classnames({ 'video-button': true, active: focused === 1 })}
                         />
                         <div
-                            style={{ backgroundImage: `url(${this.state.isPlaying ? application.icons.videoplayer.pause : application.icons.videoplayer.play})` }}
+                            // style={{ backgroundImage: `url(${this.state.isPlaying ? application.icons.videoplayer.pause : application.icons.videoplayer.play})` }}
+                            style={{ backgroundImage: `url(${this.state.isPlaying ? window.location.origin + '/app/themes/mpat-theme/shared/assets/videoplayer/icon_pause_white.png' : window.location.origin + '/app/themes/mpat-theme/shared/assets/videoplayer/icon_play_white.png' })` }}
                             className={classnames({ 'video-button': true, active: focused === 2 })}
                         />
                         <div
-                            style={{ backgroundImage: `url(${application.icons.videoplayer.forward})` }}
+                            // style={{ backgroundImage: `url(${application.icons.videoplayer.forward})` }}
+                            style={{ backgroundImage: `url(${window.location.origin}/app/themes/mpat-theme/shared/assets/videoplayer/icon_forward_white.png)` }}
                             className={classnames({ 'video-button': true, active: focused === 3 })}
                         />
                         <div
-                            style={{ backgroundImage: `url(${this.state.isFullscreen ? application.icons.videoplayer.fullscreenexit : application.icons.videoplayer.fullscreen})` }}
+                            // style={{ backgroundImage: `url(${this.state.isFullscreen ? application.icons.videoplayer.fullscreenexit : application.icons.videoplayer.fullscreen})` }}
+                            style={{ backgroundImage: `url(${this.state.isFullscreen ? window.location.origin +'/app/themes/mpat-theme/shared/assets/videoplayer/icon_fullscreen_exit_white.png' : window.location.origin + '/app/themes/mpat-theme/shared/assets/videoplayer/icon_fullscreen_white.png' })` }}
                             className={classnames({ 'video-button': true, active: focused === 4 })}
                         />
                     </div>
